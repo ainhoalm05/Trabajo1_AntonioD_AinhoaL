@@ -7,18 +7,23 @@
  *
  */
 
-#define LUNES 0
 
 int main (){
 
-	float dias[7][10] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
-	int temperatura=0;
+	char dias[7][10] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+	float temperatura[7] ;
+	float promedio=0;
+	//float mayor=0;
+	//float menor=0;
+	
+	for (int i=0; i <7; i++){
+		printf("Introduce la temperatura del %s\n",dias[i]);
+		scanf("%f", &temperatura[i]);
+		promedio+=temperatura[i];
 
-	for (int i; i == 7; i++){
-		printf("Introduce la temperatura de todos los dias de la semana");
-		scanf("%d\n", dias[i]);
 	}
-	temperaturas[LUNES]
+	promedio=promedio/7;
+	printf("La temperatura promedio de la semana: %lfºC\n", promedio);
 
 
 	return 0;
