@@ -36,9 +36,8 @@ int main (){
 	
 	promedio=promedio/7;
 	for (int j=0;j<7;j++){ 
-		if(temperatura[j]>promedio){
-		dias_promedio++;
-	}
+		if(temperatura[i]>promedio){
+		dias_promedio+=temperatura[i];
 	}
 	printf("La temperatura promedio de la semana: %lfºC\n", promedio);
 	printf("Temperatura más alta: %fºC\n",mayor);
