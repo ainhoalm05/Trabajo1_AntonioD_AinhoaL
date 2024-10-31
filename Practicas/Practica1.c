@@ -52,6 +52,5 @@ int main (){
 	printf("Temperatura más alta: %s %fºC\n",dias[dia_mayor],mayor);
 	printf("Temperatura más baja: %s %fºC\n",dias[dia_menor],menor);
 
-
 	return 0;
 }
