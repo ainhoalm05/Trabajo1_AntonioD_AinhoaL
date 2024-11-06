@@ -22,20 +22,20 @@ int main (){
 	for (int i=0;i<cantidad_palabras;i++){//bucle para las palabras
 
 		for (int j=0;j<strlen(palabra[i]);j++){//bucle para las letras de cada palabra
-		x=palabra[i][j];
+			x=palabra[i][j];
+			if (x=='a'){
+				break;
+			}
+		}
 		if (x=='a'){
-		break;
-		}
-		}
-	if (x=='a'){
-	continue;}
-	printf("%s\n",palabra[i]);
-	
-	}
+			continue;}
+		printf("%s\n",palabra[i]);
 
 	}
 
-	
+}
+
+
 
 
 return 0;
