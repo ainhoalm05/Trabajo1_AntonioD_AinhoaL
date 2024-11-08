@@ -36,7 +36,7 @@ int main (){
 		printf("Producto %d:%s - %d unidades\n",i+1,producto[i].nombre,producto[i].stock);
 	}
 
-	printf("¿Desea rebastecer algun producto? (si/no):\n");
+/*	printf("¿Desea rebastecer algun producto? (si/no):\n");
 	scanf("%s", &respuesta);
 
 	if (respuesta == "si"){
@@ -45,6 +45,13 @@ int main (){
 		printf("Cantidad a añadir:\n");
 		scanf("%d",&adicion);
 		producto[].stock+=adicion
+	}
+*/
+	printf("Productos de baja existencia:\n");
+	for (int i=0;i<cantidad;i++){
+		if (producto[i].stock<5){
+		printf("%s - %d unidades\n", producto[i].nombre, producto[i].stock);		
+		}
 	}
 	return 0;
 }
