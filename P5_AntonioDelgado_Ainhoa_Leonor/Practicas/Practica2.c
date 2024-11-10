@@ -18,13 +18,13 @@ int main (){
 	int posicion_maximo,posicion_minimo;
 
 
-	printf("Introduce el número de estudiantes\n");
+	printf("Introduce el número de estudiantes: ");
 	scanf("%d",&cantidad_estudiantes);
 	
 	double nota[cantidad_estudiantes];//Inicializo después de obtener el número de estudiantes para que el array tenga un tamaño que pueda contener todos los alumnos sin importar la cantidad 
 		for (int i=0;i<cantidad_estudiantes;i++){
 
-		printf("Nota final del estudiante número %d\n",i+1);//i+1 porque el array empieza en 0 pero el primer alumno es el número 1
+		printf("Nota final del estudiante número %d: ",i+1);//i+1 porque el array empieza en 0 pero el primer alumno es el número 1
 		scanf("%lf",&nota[i]);
 		promedio+=nota[i];
 
@@ -60,20 +60,16 @@ int main (){
 		}
 	}
 
-	printf("Nota máxima: %.2lf (Estudiante en la posición %d)\n",maximo,posicion_maximo+1);//posicion_maximo+1 por la misma razón que antes. El array empieza en 0 pero el primer alumno es el 1
-	printf("Nota mínima: %.2lf (Estudiante en la posición %d)\n",minimo,posicion_minimo+1);
+	printf("Nota máxima: %.1lf (Estudiante en la posición %d)\n",maximo,posicion_maximo+1);//posicion_maximo+1 por la misma razón que antes. El array empieza en 0 pero el primer alumno es el 1
+	printf("Nota mínima: %.1lf (Estudiante en la posición %d)\n",minimo,posicion_minimo+1);
 
 
 	printf("Notas por encima del promedio: \n");
 	for (int i=0;i<cantidad_estudiantes;i++){
 
 		if (nota[i]>promedio){
-			printf("Estudiante en la posición %d: %.2lf\n",i+1,nota[i]);
+			printf("Estudiante en la posición %d: %.1lf\n",i+1,nota[i]);
 		}
 	}
-
-
-
-
 	return 0;
 }
