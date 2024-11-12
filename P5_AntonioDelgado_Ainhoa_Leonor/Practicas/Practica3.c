@@ -22,23 +22,28 @@ int main (){
 	int adicion;
 
 	/*INGRESO DE PRODUCTOS Y MOSTRAR INVENTARIO*/
-	printf("¿Cuantos productos quieres gestionar?:\n");
+	printf("¿Cuantos productos quieres gestionar?: ");
 	scanf("%d",&cantidad);
 
 	if (cantidad <= CANTIDAD_PRODUCTO){
 		for(int i=0; i < cantidad; i++){
-			printf("Introduce el nombre de cada producto: ");
+			printf("Introduce el nombre del producto: ");
 			scanf(" %s", producto[i].nombre);
-			printf("Introduce el stock de cada producto: ");
+			printf("Introduce el stock del producto: ");
 			scanf("%d", &producto[i].stock);
 
 
 		}
 	}
+	
+	printf("\n");//Separación de párrafos
+	
 	for (int i=0;i<cantidad;i++){
 		printf("Producto %d:%s - %d unidades\n",i+1,producto[i].nombre,producto[i].stock);
 	}
 	
+	printf("\n");//espacio para separar párrafos
+
 	/*REABASTECIMIENTO DE PRODUCTOS*/
 	while (1==1){
 
@@ -62,14 +67,17 @@ int main (){
 			break;
 		}
 	}	
-	
+	printf("\n");//Separación de párrafos
+
 	/*CÁLCULO DE PRODUCTOS EN BAJA EXISTENCIA*/
-	printf("Productos de baja existencia:\n");
+	printf("Productos en baja existencia:\n");
 	for (int i=0;i<cantidad;i++){
 		if (producto[i].stock<5){
 			printf("%s - %d unidades\n", producto[i].nombre, producto[i].stock);		
 		}
 	}
+
+	printf("\n");
 
 	/*BÚSCAR UN PRODUCTO POR NOMBRE*/
 	printf("Ingrese el nombre del producto a buscar: ");

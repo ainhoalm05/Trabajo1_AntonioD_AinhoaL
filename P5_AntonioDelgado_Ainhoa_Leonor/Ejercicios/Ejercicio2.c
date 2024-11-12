@@ -40,7 +40,7 @@ int main (){
 			}
 		}
 		if (encontrada==1){
-			//Si la palabra contiene una letra 'a' encontrada vale 1 por lo que la palabra no se imprime y se salta a la siguiente
+			//Si la palabra contiene una letra 'a' "encontrada" vale 1 por lo que la palabra no se imprime y se salta a la siguiente
 			continue;
 		}
 		printf("%s\n",palabra[i]); //En el caso de que palabra no contenga una letra 'a' se imprime por pantalla

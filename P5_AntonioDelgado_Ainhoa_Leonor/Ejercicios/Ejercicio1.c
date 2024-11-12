@@ -27,6 +27,7 @@ int main (){
 	printf("Unidades Primer ejemplo: %d\n",inventario[0][0][0][0][0]); 
 	printf("Unidades Segundo ejemplo: %d\n",inventario[1][1][1][2][1]);
 
+	//Imprimimos las unidades de 5 posiciones elegidas al azar dentro de los límites
 	printf("Producto 1: %d\n",inventario[0][2][0][0][7]);
 	printf("Producto 2: %d\n",inventario[0][0][1][1][4]);
 	printf("Producto 3: %d\n",inventario[1][1][2][2][8]);
