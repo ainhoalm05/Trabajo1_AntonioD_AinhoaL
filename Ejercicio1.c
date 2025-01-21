@@ -7,6 +7,17 @@
  *
  */
 
+
+/*
+TO DO{
+
+Hacer que funcione;
+
+
+Bucle inverso con 0(busca el mayor y reemplazalo por 0 despues de colocarlo en el array);
+
+}
+*/
 int main (int argc, void ** argv){
 int numeros;
 if (argc==2)
@@ -24,8 +35,8 @@ if (argc==1){
 }else{
 	printf("Indica con numeros la cantidad de valores que quieres comparar: \n");
 }
-
-int * arr=(int *)malloc(sizeof(int)*numeros);
+int* arr=(int *)malloc(sizeof(int)*numeros);
+int* arr_ordenado=(int *)malloc(sizeof(int)*numeros);
 
 printf("Introduce los números: ");
 for ( int i = 0; i < numeros; i++)
@@ -48,7 +59,7 @@ for ( int j = 0; j < i; j++)//Asignar valores a valB(el numero de la posicion de
 	{
 		valA=valB;
 	}else{ 
-		if (valB<valA) //Comparamos el valB y el valA
+		if (valB>valA) //Comparamos el valB y el valA
 		{
 			valA=valB;
 			posA=j; //posA lo igualamos a la posicion del bucle
@@ -57,10 +68,20 @@ for ( int j = 0; j < i; j++)//Asignar valores a valB(el numero de la posicion de
 	}
 	
 }
-printf("%d, ",valA);
-for (int j = posA; j < i; j++)//Bucle que recorre los numeros a partir de la posicion en la que se quedo posA en el bucle anterior
+
+arr_ordenado[i]=valA;
+
+for (int j = posA; j <= i; j++)//Bucle que recorre los numeros a partir de la posicion en la que se quedo posA en el bucle anterior
 {
-arr[j]=arr[j+1];//Mueve los numeros de posicion en el array
+	if (j!=i-1)
+	{
+
+arr[j]=arr[j+1];//Mueve los numeros de posicion en el array y cortamos el final
+	
+	}else{
+		arr[j]
+	}
+	
 }
 
 arr =(int*) realloc(arr,sizeof(int)*(i));//Realocamos el array, el array va disminuyendo en cada vuelta
