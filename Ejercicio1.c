@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #include <stdlib.h>
 
 /*
@@ -11,10 +12,8 @@
 /*
 TO DO{
 
-Hacer que funcione;
+habilitar negativos (Línea 66)
 
-
-Bucle inverso con 0(busca el mayor y reemplazalo por 0 despues de colocarlo en el array);
 
 }
 */
@@ -47,18 +46,15 @@ for ( int i = 0; i < numeros; i++)
 int valA; //Valor más pequeño encontrado hasta el momento
 int posA=0; //Posición del valA en el array
 int valB; //Valor a comparar con valA
-for ( int i = numeros; i > 0; i--)//Bucle para recorrer todos los numeros
-{
-	
+int minimo=0;
 
-for ( int j = 0; j < i; j++)//Asignar valores a valB(el numero de la posicion del array)
+for ( int i = 0; i < numeros; i++)//Bucle para recorrer todos los numeros
+{
+valA=0;
+
+	for ( int j = 0; j < numeros; j++)//Asignar valores a valB(el numero de la posicion del array)
 {
 	valB=arr[j];
- 
-	if (j==0) //valA(igualamos al valB en la primera vuelta)
-	{
-		valA=valB;
-	}else{ 
 		if (valB>valA) //Comparamos el valB y el valA
 		{
 			valA=valB;
@@ -66,27 +62,18 @@ for ( int j = 0; j < i; j++)//Asignar valores a valB(el numero de la posicion de
 		}
 		
 	}
-	
-}
-
 arr_ordenado[i]=valA;
+arr[posA]=0;
+}
 
-for (int j = posA; j <= i; j++)//Bucle que recorre los numeros a partir de la posicion en la que se quedo posA en el bucle anterior
+
+for (int i = 0; i < numeros; i++)
 {
-	if (j!=i-1)
-	{
-
-arr[j]=arr[j+1];//Mueve los numeros de posicion en el array y cortamos el final
-	
-	}else{
-		arr[j]
-	}
-	
+	printf("%d, ",arr_ordenado[i]);
 }
-
-arr =(int*) realloc(arr,sizeof(int)*(i));//Realocamos el array, el array va disminuyendo en cada vuelta
-}
+	printf("\n");
 
 free(arr);
+free(arr_ordenado);
 	return 0;
 }
