@@ -37,8 +37,13 @@ int n_estudiantes;
     
     for (int i = 1; i <= n_estudiantes; i++)
     {
-        for (int j = 0; j <= n_estudiantes-1; j++)
-        {
+        for (int j = i+1; j <= n_estudiantes; j++)//Para que se comaparen dos numeros distintos en cada bucle
+	{
+		if([i]<[j])
+		temp = numeros[i];
+                numeros[i] = numeros[j];
+                numeros[j] = temp;
+        
             /* code */
         }
         
