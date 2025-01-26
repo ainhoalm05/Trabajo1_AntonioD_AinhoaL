@@ -12,15 +12,15 @@ char arr[10][10];
 char movimiento='n';
 int columnas=10;
 int filas=10;
-int x=filas/2;
-int y=columnas/2;
-
+int y=filas/2;
+int x=columnas/2;
+/*
 for (int i = 0; i < filas; i++)
 {
 
 for (int j = 0; j < columnas; j++)
 {
-if (i==x && j==y)
+if (i==y && j==x)
 {
     arr[i][j]='#';
 }else if (i==0||i==filas-1||j==0||j==columnas-1)
@@ -33,26 +33,44 @@ if (i==x && j==y)
 
 }
 printf("\n");
-}
-scanf("%c",&movimiento);
-scanf(" ");
-while (movimiento!='q')
+}*/
+system("clear");
+
+do 
 {
 
 switch (movimiento)
 {
 case 'w':
-    y+=1;
+    if (y-1==0)
+    {}else {
+    y-=1;
+    }
+    
     
     break;
+
 case 'a':
+    if ((x-1)==0)
+    {}else {
     x-=1;
+    }
+    
     break;
+
 case 's':
-    y-=1;
+    if (y+1==filas-1)
+    {}else {
+    y+=1;
+    }    
+ 
     break;
+
 case 'd':
+    if (x+1==columnas-1)
+    {}else {
     x+=1;
+    }    
     break;
 
 default:
@@ -64,7 +82,7 @@ for (int i = 0; i < filas; i++)
 
 for (int j = 0; j < columnas; j++)
 {
-if (i==x && j==y)
+if (i==y && j==x)
 {
     arr[i][j]='#';
 }else if (i==0||i==filas-1||j==0||j==columnas-1)
@@ -73,16 +91,15 @@ if (i==x && j==y)
 }else{
     arr[i][j]=' ';
 }    
-    printf("%c",arr[i][j]);
+    printf(" %c",arr[i][j]);
 
 }
 printf("\n");
 }
 scanf("%c",&movimiento);
-scanf(" ");
 system("clear");
 
-}
+}while (movimiento!='q');
 
 
 
