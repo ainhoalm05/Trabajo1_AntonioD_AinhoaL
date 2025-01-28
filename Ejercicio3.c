@@ -6,14 +6,14 @@
  *
  */
 
-int main (){
+int main (int argc, char ** argv){
 
 char arr[10][10];
 char movimiento='n';
 int columnas=10;
 int filas=10;
-int y=filas/2;
-int x=columnas/2;
+int y;
+int x;
 /*
 for (int i = 0; i < filas; i++)
 {
@@ -34,6 +34,27 @@ if (i==y && j==x)
 }
 printf("\n");
 }*/
+if (argc>=2)
+{
+if (argc==2&&atoi(argv[1])>=3)
+{
+    columnas=atoi(argv[1]);
+    filas=atoi(argv[1]);
+}else if (argc==3&&atoi(argv[1])>=3&&atoi(argv[2])>=3)
+{
+    columnas=atoi(argv[1]);
+    filas=atoi(argv[2]);
+}else if (argc>3||atoi(argv[1])<3||atoi(argv[2])<3)
+{
+    printf("ERROR: los valores introducidos no son válidos\n");
+    return 1;
+}
+}
+y=filas/2;
+x=columnas/2;
+
+
+
 system("clear");
 
 do 
