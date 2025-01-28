@@ -31,24 +31,30 @@ int n_estudiantes;
         scanf("%s", persona[i].apellido);
 
         printf("Ingresa la nota del estudiante: ");
-        scanf("%f", &persona[i].nota);
+        scanf("%f", persona[i].nota);
         
     }    
     
-    for (int i = 1; i <= n_estudiantes; i++)
-    {
-        for (int j = i+1; j <= n_estudiantes; j++)//Para que se comaparen dos numeros distintos en cada bucle
-	{
-		if([i]<[j])
-		temp = numeros[i];
-                numeros[i] = numeros[j];
-                numeros[j] = temp;
+    float temp;
+    int i;
+   
+
+    for ( i = 1; i <= n_estudiantes; i++){
+        for (int j = i+1; j <= n_estudiantes -1; j++){//Para que se comaparen dos numeros distintos en cada bucle
+		if(persona[j].nota > persona[j+1].nota)
+		    temp = persona[j].nota ;
+            persona[j].nota  = persona[j+1].nota ;
+            persona[j+1].nota  = temp;
         
-            /* code */
         }
         
     }
-    
+    // Mostrar los números ordenados
+    printf("Los números ordenados de mayor a menor son:\n");
+    for (int i = 0; i < n_estudiantes; i++) {
+        printf("%.2f\n", numeros[i]);
+
+    }
 
 	return 0;
 }
