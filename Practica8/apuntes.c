@@ -37,3 +37,5 @@ habilidad Habilidad;
 int oro;
 int nivel;
 }cazador/dragon;
+
+ARR_CAZADORES=REALLOC(ARR_CAZADORES,SIZEOF(CAZADOR)*TOTAL_CAZADORES+1)

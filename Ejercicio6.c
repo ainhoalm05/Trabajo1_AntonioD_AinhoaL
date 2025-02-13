@@ -13,6 +13,7 @@
 int main (int argc, char ** argv){
 char * frase;
 char * frase_cifrada;
+char * frase_descifrada;
 int clave;
 
 if (argc==1)
@@ -27,6 +28,7 @@ if (argc==1)
 
 frase=(char *)malloc(sizeof(char)*(strlen(argv[1])+1)); //Le sumo 1 ya que strlen no detecta el \0 pero este igualmente se tiene que guardar
 frase_cifrada=(char *)malloc(sizeof(char)*(strlen(argv[1])+1));
+frase_descifrada=(char *)malloc(sizeof(char)*(strlen(argv[1])+1));
 strcpy(frase,argv[1]);
 printf("Introduce una clave\n");
 scanf("%d",&clave);
@@ -105,9 +107,10 @@ printf("%s\n",frase_cifrada);
 
 /*------DESCIFRADO--------*/
 
-
-
-
+for (int i = 0; i < strlen(frase); i++){
+	frase_descifrada[i]=frase_cifrada[i]-clave;
+}
+printf("%s\n",frase_descifrada);
 
 
 /*------------------------*/

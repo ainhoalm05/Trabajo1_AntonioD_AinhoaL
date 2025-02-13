@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "cazador.h"
 
 /*
 *
@@ -10,8 +11,12 @@
 int main (){
     int menu;
     /*MENU DE INICIO*/
+    cazador * Cazadores=(cazador *)malloc(sizeof(cazador)*2);//Array que contiene todos los cazadores
+    int total_cazadores=0;//Contador del total de cazadores
+    Cazadores[total_cazadores]=inicializarCazador("Paco",100,20,1,1000,1,&total_cazadores);
+    Cazadores[total_cazadores]=inicializarCazador("Raúl",70,40,2,5000,5,&total_cazadores);
+    system("clear");
     do{
-        system("clear");
         
         printf("BIENVENIDO A DRACONIS EXTERMINATUS\n");
         printf("ELIGE UNA OPCIÓN\n");
@@ -26,7 +31,7 @@ int main (){
         {
             
             case 1:
-            //mostrarcazadores();
+            mostrarCazadores(Cazadores,total_cazadores);
             break;
             
             case 2:
@@ -34,7 +39,8 @@ int main (){
             break;
             
             case 3:
-            //anadircazador();
+            
+            anadirCazador(&Cazadores,&total_cazadores);
             break;
             
             case 4:
