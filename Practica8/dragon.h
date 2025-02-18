@@ -17,7 +17,7 @@ typedef struct
  }dragon;
 
 /*TRADUCE EL NUMERO DE HABILIDAD AL NOMBRE CORRESPONDIENTE*/
-char * obtenerHabilidad(int Habilidad);
+char * HabilidadDragon(int Habilidad);
 
  /*MUESTRA TODOS LOS CAZADORES ACTUALES*/
 void mostrarDragones();

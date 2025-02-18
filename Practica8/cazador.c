@@ -6,6 +6,7 @@
  *
  *	Authors: Ainhoa Leonor y Antonio Delgado
  *
+ * TO DO: recuperar cazadores en caso de no poder hacer realloc
  */
 
  char * obtenerHabilidad(int Habilidad){
@@ -39,9 +40,12 @@ void anadirCazador(cazador ** Cazadores, int * total_cazadores){
     int Habilidad;
     int Oro;
     int Nivel=1;
-    
     *Cazadores=(cazador *)realloc(*Cazadores,sizeof(cazador)*(*total_cazadores+1));
-
+    if (*Cazadores==NULL)
+    {
+        printf("No puedes añadir tu cazador, juega con los que tienes");
+    }else{
+    
     printf("Introduce el nombre de tu cazador\n");
     scanf(" ");
     fgets(Nombre,MAX_NOMBRE,stdin);
@@ -64,11 +68,12 @@ void anadirCazador(cazador ** Cazadores, int * total_cazadores){
     system("clear");
 
     (*Cazadores)[*total_cazadores]=inicializarCazador(Nombre,Vida,Atk,Habilidad,Oro,Nivel,total_cazadores);
+    }
 }
 void mostrarCazadores(cazador * Cazadores,int total_cazadores){
 for (int i = 0; i < total_cazadores; i++)
 {
-    printf("NOMBRE: %s\n",Cazadores[i].Nombre);
+    printf("%d\tNOMBRE: %s\n",i+1,Cazadores[i].Nombre);
     printf("\tVIDA: %d\n",Cazadores[i].Vida);
     printf("\tATAQUE: %d\n",Cazadores[i].Atk);
     printf("\tHABILIDAD: %s\n",Cazadores[i].Habilidad);

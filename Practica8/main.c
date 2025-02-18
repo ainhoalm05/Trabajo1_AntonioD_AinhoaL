@@ -11,19 +11,31 @@
 
 int main (){
     /*MENU DE INICIO*/
-    int menu;
+    char menu;
     /*LISTA DE CAZADORES*/
     cazador * Cazadores=(cazador *)malloc(sizeof(cazador)*2);//Array que contiene todos los cazadores
+    if (Cazadores== NULL)
+    {
+        printf("Error: no se pudo asignar memoria\n");
+        return 1;
+    }
+    
     int total_cazadores=0;//Contador del total de cazadores
-    Cazadores[total_cazadores]=inicializarCazador("Paco",100,20,1,1000,1,&total_cazadores);
-    Cazadores[total_cazadores]=inicializarCazador("Raúl",70,40,2,5000,5,&total_cazadores);
+    Cazadores[total_cazadores]=inicializarCazador("Pacotracer Firewall",100,20,1,1000,1,&total_cazadores);
+    Cazadores[total_cazadores]=inicializarCazador("Jose Luis 2008-R2",70,40,2,5000,5,&total_cazadores);
+    int Cazador_elegido;
     /*LISTA DE DRAGONES*/
     dragon * Dragones=(dragon *)malloc(sizeof(dragon)*2);//Array que contiene todos los dragones
+    if (Dragones == NULL){
+        printf("Error: no se pudo asignar memoria\n");
+        return 1;
+    }
     int total_dragones=0;//Contador del total de dragones
-    Dragones[total_dragones]=inicializarDragon("Pedro Sanchez",200,40,3,4000,2,&total_dragones);
-    Dragones[total_dragones]=inicializarDragon("Rajoy",70,42,22,51000,4,&total_dragones);
-    system("clear");
+    Dragones[total_dragones]=inicializarDragon("Pedro Sanchez Su Sanchidad",200,40,3,4000,2,&total_dragones);
+    Dragones[total_dragones]=inicializarDragon("Rajoy El Imprevisible",70,42,4,51000,4,&total_dragones);
+    int Dragon_elegido;
     do{
+        system("clear");
         
         printf("BIENVENIDO A DRACONIS EXTERMINATUS\n");
         printf("ELIGE UNA OPCIÓN\n");
@@ -33,35 +45,49 @@ int main (){
         printf("4. AÑADIR DRAGON\n");
         printf("5. MOSTRAR PUNTUACIONES\n");
         printf("6. SALIR\n");
-        scanf("%d",&menu);
-        switch (menu)
+        scanf("%c",&menu);
+        
+        if (atoi(&menu) < 6 && atoi(&menu) >= 1)
         {
             
-            case 1:
-            mostrarCazadores(Cazadores,total_cazadores);
-            break;
-            
-            case 2:
-            mostrarDragones(Dragones,total_dragones);
-            break;
-            
-            case 3:
-            
-            anadirCazador(&Cazadores,&total_cazadores);
-            break;
-            
-            case 4:
-            anadirDragon(&Dragones,total_dragones);
-            break;
-            
-            case 5:
-            //mostrarpuntuacion();
-            break;
-            
-            default:
-            break;
+            switch (atoi(&menu))
+            {
+                
+                case 1:
+                system("clear");
+                mostrarCazadores(Cazadores,total_cazadores);
+                printf("Elige El héroe que salvará al reino: ");
+                scanf("%d",&Cazador_elegido);
+                break;
+                
+                case 2:
+                system("clear");
+                mostrarDragones(Dragones,total_dragones);
+                printf("Elige el dragón que va a morir: ");
+                scanf("%d",&Dragon_elegido);
+                break;
+                
+                case 3:
+                system("clear");
+                anadirCazador(&Cazadores,&total_cazadores);
+
+                break;
+                
+                case 4:
+                system("clear");
+                anadirDragon(&Dragones,&total_dragones);
+                break;
+                
+                case 5:
+                system("clear");
+                //mostrarpuntuacion();
+                break;
+                default:
+                break;
+            }
         }
-    }while (menu!=6);
-    
+    }while (atoi(&menu) != 6);
+    free(Dragones);
+    free(Cazadores);
     return 0;
 }
