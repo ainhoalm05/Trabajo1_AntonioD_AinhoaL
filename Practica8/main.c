@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "cazador.h"
 #include "dragon.h"
+#include "combate.h"
 
 /*
 *
@@ -31,8 +32,8 @@ int main (){
         return 1;
     }
     int total_dragones=0;//Contador del total de dragones
-    Dragones[total_dragones]=inicializarDragon("Pedro Sanchez Su Sanchidad",200,40,3,4000,2,&total_dragones);
-    Dragones[total_dragones]=inicializarDragon("Rajoy El Imprevisible",70,42,4,51000,4,&total_dragones);
+    Dragones[total_dragones]=inicializarDragon("Su Sanchidad",200,40,3,4000,2,&total_dragones);
+    Dragones[total_dragones]=inicializarDragon("Rajoy",70,42,4,51000,4,&total_dragones);
     int Dragon_elegido;
     do{
         system("clear");
@@ -58,6 +59,7 @@ int main (){
                 mostrarCazadores(Cazadores,total_cazadores);
                 printf("Elige El héroe que salvará al reino: ");
                 scanf("%d",&Cazador_elegido);
+                cazador CazadorJugable=Cazadores[Cazador_elegido-1];
                 break;
                 
                 case 2:
@@ -65,11 +67,13 @@ int main (){
                 mostrarDragones(Dragones,total_dragones);
                 printf("Elige el dragón que va a morir: ");
                 scanf("%d",&Dragon_elegido);
+                dragon DragonJugable=Dragones[Dragon_elegido-1];
                 break;
                 
                 case 3:
                 system("clear");
-                anadirCazador(&Cazadores,&total_cazadores);
+                //anadirCazador(&Cazadores,&total_cazadores);
+                iniciocombate(&CazadorJugable,&DragonJugable);//POSICION PROVISIONAL
 
                 break;
                 

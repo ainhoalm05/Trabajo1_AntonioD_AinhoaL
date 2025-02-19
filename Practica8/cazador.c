@@ -12,7 +12,7 @@
  char * obtenerHabilidad(int Habilidad){
     switch (Habilidad) {
         case 1: return "Eviscerar";
-        case 2: return "Gancho Divino";
+        case 2: return "Descarga de rayos";
         case 3: return "Curación";
         case 4: return "Flecha Mágica";
         default: return "ERROR";
