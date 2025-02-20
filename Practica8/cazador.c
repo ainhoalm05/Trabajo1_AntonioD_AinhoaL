@@ -26,7 +26,7 @@
     strcpy(Cazador.Nombre, Nombre);
     Cazador.Vida=Vida;
     Cazador.Atk=Atk;
-    strcpy(Cazador.Habilidad,obtenerHabilidad(Habilidad));
+    Cazador.Habilidad=Habilidad;
     Cazador.Oro=Oro;
     Cazador.Nivel=Nivel;
     
@@ -76,7 +76,7 @@ for (int i = 0; i < total_cazadores; i++)
     printf("%d\tNOMBRE: %s\n",i+1,Cazadores[i].Nombre);
     printf("\tVIDA: %d\n",Cazadores[i].Vida);
     printf("\tATAQUE: %d\n",Cazadores[i].Atk);
-    printf("\tHABILIDAD: %s\n",Cazadores[i].Habilidad);
+    printf("\tHABILIDAD: %s\n",obtenerHabilidad(Cazadores[i].Habilidad));
     printf("\tORO INICIAL: %d\n",Cazadores[i].Oro);
     printf("\tNIVEL: %d\n",Cazadores[i].Nivel);
     printf("\n");
