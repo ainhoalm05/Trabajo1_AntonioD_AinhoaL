@@ -36,6 +36,8 @@ void iniciocombate(cazador * Cazador, dragon * Dragon){
         printf("Vida de %s: %d\n",Cazador->Nombre,Cazador->Vida);
         printf("Vida de %s: %d\n",Dragon->Nombre,Dragon->Vida);
         printf("GANASTE\n");
+        printf("Conseguiste %d monedas de oro\n",Dragon->Oro);
+        Cazador->Oro+=Dragon->Oro;
         getchar();
         getchar();
     }

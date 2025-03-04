@@ -90,12 +90,16 @@ int main (){
                 
                 case 5:
                 system("clear");
+                printf("Oro de tu cazador %d",CazadorJugable.Oro);
+                getchar();
+                getchar();
+
                 //mostrarpuntuacion();
                 break;
                 case 6:
-                if (Cazador_elegido!=0)
+                if (Cazador_elegido!=0&&Cazador_elegido<=total_cazadores)
                 {
-                    if (Dragon_elegido!=0)
+                    if (Dragon_elegido!=0&&Dragon_elegido<=total_dragones)
                     {
                         
                         iniciocombate(&CazadorJugable,&DragonJugable);//POSICION PROVISIONAL
