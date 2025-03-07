@@ -1,0 +1,10 @@
+TODO:
+Principal
+-implementar las frases y descripciones
+-permitir al dragón usar habilidades
+-Implementar vida máxima y arreglar la sobrecuración
+-Revisar y arreglar curación
+Secundarias
+-revivir al personaje(con oro)
+-Darle propósito a los niveles(Comprar niveles con oro y ganar stats)
+-¿Tienda?

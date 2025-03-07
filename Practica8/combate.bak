@@ -13,7 +13,7 @@
 void iniciocombate(cazador * Cazador, dragon * Dragon){
     int turno=0; //0:Cazador 1:Dragon
     int Turncount=1;
-    int Cooldown=0;
+
     
     while (Cazador->Vida>0&&Dragon->Vida>0)
     {
@@ -21,7 +21,7 @@ void iniciocombate(cazador * Cazador, dragon * Dragon){
         printf("Turno %d\n",Turncount);
         printf("Vida de %s: %d\n",Cazador->Nombre,Cazador->Vida);
         printf("Vida de %s: %d\n",Dragon->Nombre,Dragon->Vida);
-        accion_turno(Cazador,Dragon,&turno,&Turncount,&Cooldown);
+        accion_turno(Cazador,Dragon,&turno,&Turncount);
     }
     if (Cazador->Vida<=0)
     {
@@ -45,58 +45,37 @@ void iniciocombate(cazador * Cazador, dragon * Dragon){
     
 }
 
-void accion_turno(cazador * Cazador,dragon * Dragon,int * turno,int * Turncount,int *Cooldown){
+void accion_turno(cazador * Cazador,dragon * Dragon,int * turno,int * Turncount){
     int accion;
     if (*turno==0)
     {
-        
+        *Turncount+=1;
         printf("1. Atacar\n");
-        if (*Cooldown==0){printf("2. Habilidad (Disponible)\n");}
-        else{
-            printf("2. Habilidad En enfriamiento(%d turno/s)\n",*Cooldown);            
-        }
-        
+        printf("2. Habilidad\n");
         scanf("%d",&accion);
-        if (*Cooldown!=0&&accion==2)
+        switch (accion)
         {
-            printf("La habilidad está en enfriamiento\n");
+            case 1:
+            printf("Atacas al dragón con tu arma y le inflinges %d puntos de daño",Cazador->Atk);
+            printf("Vida del dragón: %d -> %d",Dragon->Vida,(Dragon->Vida)-(Cazador->Atk));
+            Dragon->Vida=cambiostat(Dragon->Vida,Cazador->Atk);
             getchar();
             getchar();
+            break;
             
-        }else{
+            case 2:
+            printf("%s Usó %s\n",Cazador->Nombre,obtenerHabilidad(Cazador->Habilidad));
+            printf("Vida del dragón: %d -> %d",Dragon->Vida,(Dragon->Vida)-Habilidad(Cazador,Dragon,turno));
+            Dragon->Vida=Habilidad(Cazador,Dragon,turno);
+            getchar();
+            getchar();
+            break;
             
-            switch (accion)
-            {
-                case 1:
-                printf("Atacas al dragón con tu arma y le inflinges %d puntos de daño",Cazador->Atk);
-                printf("Vida del dragón: %d -> %d",Dragon->Vida,(Dragon->Vida)-(Cazador->Atk));
-                Dragon->Vida=cambiostat(Dragon->Vida,Cazador->Atk);
-                getchar();
-                getchar();
-                if (*Cooldown>0)
-                {
-                    *Cooldown-=1;
-                }
-                *Turncount+=1;
-                
-                break;
-                
-                case 2:
-                printf("%s Usó %s\n",Cazador->Nombre,obtenerHabilidad(Cazador->Habilidad));
-                printf("Vida del dragón: %d -> %d",Dragon->Vida,(Dragon->Vida)-Habilidad(Cazador,Dragon,turno));
-                Dragon->Vida=Habilidad(Cazador,Dragon,turno);
-                *Cooldown=3;
-                getchar(); 
-                getchar();
-                *Turncount+=1;
-                
-                break;
-                default:
-                break;
-            }
-            *turno=1;
+            default:
+            break;
         }
-    } if (*turno==1)
+        *turno=1;
+    }else if (*turno==1)
     {
         printf("%s te ataca (recibes %d puntos de daño)\n",Dragon->Nombre,Dragon->Atk);
         printf("Vida de %s: %d -> %d",Cazador->Nombre,Cazador->Vida,(Cazador->Vida)-(Dragon->Atk));
@@ -112,19 +91,19 @@ int Habilidad(cazador * Cazador,dragon * Dragon,int *turno){
         
         switch (Cazador->Habilidad)
         {
-            case 1://eviscerar
+            case 1:
             return (cambiostat(Dragon->Vida,100));
             break;
             
-            case 2://Descarga de rayos
+            case 2:
             return (cambiostat(Dragon->Vida,100));
             break;
             
-            case 3://Curacion
+            case 3:
             return (cambiostat(Cazador->Vida,(-60)));//Daño negativo == Curación
             break;
             
-            case 4://Flecha mágica
+            case 4:
             return (cambiostat(Dragon->Vida,100));
             break;
             

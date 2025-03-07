@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "dragon.h"
+#include "utilidades.h"
 /*
  *
  *	Authors: Ainhoa Leonor y Antonio Delgado
@@ -25,7 +26,7 @@
     strcpy(Dragon.Nombre, Nombre);
     Dragon.Vida=Vida;
     Dragon.Atk=Atk;
-    strcpy(Dragon.Habilidad,HabilidadDragon(Habilidad));
+    Dragon.Habilidad=Habilidad;
     Dragon.Oro=Oro;
     Dragon.Nivel=Nivel;
     
@@ -70,10 +71,10 @@ void mostrarDragones(dragon * Dragones,int total_dragones){
 for (int i = 0; i < total_dragones; i++)
 {
     printf("%d\tNOMBRE: %s\n",i+1,Dragones[i].Nombre);
-    printf("\tVIDA: %d\n",Dragones[i].Vida);
-    printf("\tATAQUE: %d\n",Dragones[i].Atk);
-    printf("\tHABILIDAD: %s\n",Dragones[i].Habilidad);
-    printf("\tORO INICIAL: %d\n",Dragones[i].Oro);
+    printf(ROJO "\tVIDA: %d\n" RESET,Dragones[i].Vida);
+    printf(AZUL "\tATAQUE: %d\n" RESET,Dragones[i].Atk);
+    printf(VERDE "\tHABILIDAD: %s\n" RESET,HabilidadDragon(Dragones[i].Habilidad));
+    printf(AMARILLO "\tORO INICIAL: %d\n" RESET,Dragones[i].Oro);
     printf("\tNIVEL: %d\n",Dragones[i].Nivel);
     printf("\n");
 }

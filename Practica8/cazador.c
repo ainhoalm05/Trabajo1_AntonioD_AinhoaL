@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cazador.h"
+#include "utilidades.h"
 /*
  *
  *	Authors: Ainhoa Leonor y Antonio Delgado
@@ -73,11 +74,12 @@ void anadirCazador(cazador ** Cazadores, int * total_cazadores){
 void mostrarCazadores(cazador * Cazadores,int total_cazadores){
 for (int i = 0; i < total_cazadores; i++)
 {
+    //printf(ROJO    "This text is RED!"     RESET "\n");
     printf("%d\tNOMBRE: %s\n",i+1,Cazadores[i].Nombre);
-    printf("\tVIDA: %d\n",Cazadores[i].Vida);
-    printf("\tATAQUE: %d\n",Cazadores[i].Atk);
-    printf("\tHABILIDAD: %s\n",obtenerHabilidad(Cazadores[i].Habilidad));
-    printf("\tORO INICIAL: %d\n",Cazadores[i].Oro);
+    printf(ROJO "\tVIDA: %d\n" RESET ,Cazadores[i].Vida);
+    printf(AZUL "\tATAQUE: %d\n" RESET,Cazadores[i].Atk);
+    printf(VERDE "\tHABILIDAD: %s\n" RESET,obtenerHabilidad(Cazadores[i].Habilidad));
+    printf(AMARILLO "\tORO INICIAL: %d\n" RESET,Cazadores[i].Oro);
     printf("\tNIVEL: %d\n",Cazadores[i].Nivel);
     printf("\n");
 }

@@ -3,6 +3,7 @@
 #include "cazador.h"
 #include "dragon.h"
 #include "combate.h"
+#include "utilidades.h"
 
 /*
 *
@@ -44,13 +45,13 @@ int main (){
     do{
         system("clear");
         
-        printf("BIENVENIDO A DRACONIS EXTERMINATUS\n");
-        printf("ELIGE UNA OPCIÓN\n");
+        system("cat LOGO.txt\n");
+        printf("\nELIGE UNA OPCIÓN\n");
         printf("1. ELIGE CAZADOR\n");
         printf("2. ELIGE DRAGÓN\n");
         printf("3. AÑADIR CAZADOR\n");
         printf("4. AÑADIR DRAGON\n");
-        printf("5. MOSTRAR PUNTUACIONES\n");
+        printf("5. MOSTRAR ORO\n");
         printf("6. INICIAR COMBATE\n");
         printf("7. SALIR\n");
         scanf("%c",&menu);

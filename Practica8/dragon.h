@@ -11,7 +11,7 @@ typedef struct
  char Nombre[MAX_NOMBRE];
  int Vida;
  int Atk;
- char Habilidad[MAX_NOMBRE];
+ int Habilidad;
  int Oro;
  int Nivel;
  }dragon;
