@@ -68,7 +68,7 @@ void accion_turno(cazador * Cazador,dragon * Dragon,int * turno,int * Turncount,
             switch (accion)
             {
                 case 1:
-                printf("Atacas al dragón con tu arma y le inflinges %d puntos de daño",Cazador->Atk);
+                printf("Atacas al dragón con tu arma y le inflinges %d puntos de daño\n ",Cazador->Atk);
                 printf("Vida del dragón: %d -> %d",Dragon->Vida,(Dragon->Vida)-(Cazador->Atk));
                 Dragon->Vida=cambiostat(Dragon->Vida,Cazador->Atk);
                 getchar();
@@ -83,8 +83,16 @@ void accion_turno(cazador * Cazador,dragon * Dragon,int * turno,int * Turncount,
                 
                 case 2:
                 printf("%s Usó %s\n",Cazador->Nombre,obtenerHabilidad(Cazador->Habilidad));
-                printf("Vida del dragón: %d -> %d",Dragon->Vida,(Dragon->Vida)-Habilidad(Cazador,Dragon,turno));
-                Dragon->Vida=Habilidad(Cazador,Dragon,turno);
+                FraseCazador(Cazador->Habilidad);
+                if (Cazador->Habilidad==3)
+                {
+                    printf("Vida del Cazador: %d -> %d",Cazador->Vida,Habilidad(Cazador,Dragon,turno));
+                    Cazador->Vida=Habilidad(Cazador,Dragon,turno);
+                }else{
+                    
+                    printf("Vida del dragón: %d -> %d",Dragon->Vida,Habilidad(Cazador,Dragon,turno));
+                    Dragon->Vida=Habilidad(Cazador,Dragon,turno);
+                }
                 *Cooldown=3;
                 getchar(); 
                 getchar();
@@ -98,13 +106,22 @@ void accion_turno(cazador * Cazador,dragon * Dragon,int * turno,int * Turncount,
         }
     } if (*turno==1)
     {
-        printf("%s te ataca (recibes %d puntos de daño)\n",Dragon->Nombre,Dragon->Atk);
-        printf("Vida de %s: %d -> %d",Cazador->Nombre,Cazador->Vida,(Cazador->Vida)-(Dragon->Atk));
-        Cazador->Vida=cambiostat( Cazador->Vida, Dragon->Atk);
-        getchar();
-        *turno=0;
+        if (*Turncount==1 || *Turncount%3==0 )
+        {
+            printf("%s Usó %s\n",Dragon->Nombre,HabilidadDragon(Dragon->Habilidad));
+            FraseDragon(Dragon->Habilidad);
+            printf("Vida del Cazador: %d -> %d",Cazador->Vida,Habilidad(Cazador,Dragon,turno));
+            Cazador->Vida=Habilidad(Cazador,Dragon,turno);
+            getchar();
+        }else{
+            
+            printf("%s te ataca (recibes %d puntos de daño)\n",Dragon->Nombre,Dragon->Atk);
+            printf("Vida de %s: %d -> %d",Cazador->Nombre,Cazador->Vida,(Cazador->Vida)-(Dragon->Atk));
+            Cazador->Vida=cambiostat( Cazador->Vida, Dragon->Atk);
+            getchar();
+        }
+            *turno=0;
     }
-    
 }
 int Habilidad(cazador * Cazador,dragon * Dragon,int *turno){
     if (*turno==0)
@@ -117,15 +134,15 @@ int Habilidad(cazador * Cazador,dragon * Dragon,int *turno){
             break;
             
             case 2://Descarga de rayos
-            return (cambiostat(Dragon->Vida,100));
+            return (cambiostat(Dragon->Vida,75));
             break;
             
             case 3://Curacion
-            return (cambiostat(Cazador->Vida,(-60)));//Daño negativo == Curación
+            return (cambiostat(Cazador->Vida,(-100)));//Daño negativo == Curación
             break;
             
             case 4://Flecha mágica
-            return (cambiostat(Dragon->Vida,100));
+            return (cambiostat(Dragon->Vida,1000));
             break;
             
             default:
@@ -139,15 +156,15 @@ int Habilidad(cazador * Cazador,dragon * Dragon,int *turno){
             break;
             
             case 2:
-            return (cambiostat(Cazador->Vida,100));
+            return (cambiostat(Cazador->Vida,50));
             break;
             
             case 3:
-            return (cambiostat(Cazador->Vida,100));
+            return (cambiostat(Cazador->Vida,200));
             break;
             
             case 4:
-            return (cambiostat(Cazador->Vida,100));
+            return (cambiostat(Cazador->Vida,60));
             break;
             
             default:

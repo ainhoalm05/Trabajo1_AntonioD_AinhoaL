@@ -19,8 +19,8 @@ printf(ROJO    "This text is RED!"     RESET "\n");
  #define CIAN    "\x1b[36m"
  #define RESET   "\x1b[0m"
 
- /*void DescripcionCazador(int Habilidad);
- void DescripcionDragon(int Habilidad);
- void FraseCazador(cazador Cazador,int Habilidad);
- void FraseDragon(dragon Dragon,int Habilidad);
-*/
+ 
+ void DescripcionCazador();
+ void DescripcionDragon();
+ void FraseCazador(int Habilidad);
+ void FraseDragon(int Habilidad);

@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+/*
+ *
+ *	Authors: Ainhoa Leonor y Antonio Delgado
+ *
+ */
 
 
 
@@ -7,11 +12,6 @@
 
 
 #define MAX_NOMBRE 20
-/*
- *
- *	Authors: Ainhoa Leonor y Antonio Delgado
- *
- */
 
  typedef struct 
  {

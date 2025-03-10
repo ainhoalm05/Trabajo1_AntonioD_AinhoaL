@@ -40,29 +40,74 @@ void anadirDragon(dragon ** Dragones, int * total_dragones){
     int Habilidad;
     int Oro;
     int Nivel=1;
-    
+    char Holder[MAX_NOMBRE];
     *Dragones=(dragon *)realloc(*Dragones,sizeof(dragon)*(*total_dragones+1));
-    
-    printf("Introduce el nombre de tu Dragon\n");
-    scanf(" ");
-    fgets(Nombre,MAX_NOMBRE,stdin);
-    system("clear");
-    
-    printf("Introduce la vida de tu Dragon\n");
-    scanf("%d",&Vida);
-    system("clear");
-    
-    printf("Introduce el ataque de tu Dragon: \n");
-    scanf("%d",&Atk);
-    system("clear");
-    
-    printf("Introduce la habilidad de tu Dragon\n");
-    scanf("%d",&Habilidad);
-    system("clear");
-    
-    printf("Introduce el oro inicial de tu Dragon\n");
-    scanf("%d",&Oro);
-    system("clear");
+    if (*Dragones==NULL)
+    {
+        printf("No puedes añadir tu Dragón, juega con los que tienes");
+        return;
+    }else{
+        
+        printf("Introduce el nombre de tu Dragón\n");
+        scanf(" ");
+        fgets(Nombre,MAX_NOMBRE,stdin);
+        system("clear");
+        
+        printf("Introduce la vida de tu Dragón\n");
+        scanf("%s",Holder);
+        if (atoi(Holder)!=0)
+        {
+            Vida=atoi(Holder);
+        }else{
+            printf("Introduce un valor númerico superior a 0");
+            getchar();
+            getchar();
+            return;
+        }
+        
+        system("clear");
+        
+        printf("Introduce el ataque de tu Dragón: \n");
+        scanf("%s",Holder);
+        if (atoi(Holder)!=0)
+        {
+            Atk=atoi(Holder);
+        }else{
+            printf("Introduce un valor númerico superior a 0");
+            getchar();
+            getchar();
+            return;
+        }
+        
+        system("clear");
+        
+        printf("Introduce la habilidad de tu Dragón\n");
+        DescripcionDragon();
+        scanf("%s",Holder);
+        if (atoi(Holder)!=0&&(atoi(Holder)>=1&&atoi(Holder)<=4))
+        {
+            Habilidad=atoi(Holder);
+        }else{
+            printf("Selecciona una Habilidad Válida (1-4)");
+            getchar();
+            getchar();
+            return;
+        }
+        
+        system("clear");
+        
+        printf("Introduce el oro de tu Dragón\n");
+        scanf("%s",Holder);
+        if (atoi(Holder)!=0)
+        {
+            Oro=atoi(Holder);
+        }else{
+            printf("Introduce un valor númerico superior a 0");
+            getchar();
+            getchar();
+            return;
+        }
+    }
     
     (*Dragones)[*total_dragones]=inicializarDragon(Nombre,Vida,Atk,Habilidad,Oro,Nivel,total_dragones);
     

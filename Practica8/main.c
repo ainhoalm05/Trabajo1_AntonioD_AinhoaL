@@ -8,13 +8,8 @@
 /*
 *
 *	Authors: Ainhoa Leonor y Antonio Delgado
-*   TODO{
-*   Poner las habilidades cuando añades cazador
-*   Poner ascii de win, game over e inicio
-*   Colores para las letras
-*   Subir de nivel y de oro cada vez que ganas
-*   Guardar partida
-*   }
+*  
+*     
 */
 
 int main (){
